@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install telethon
           python -m pip install pytz
-          # Add any other required libraries and versions here 
+          # Add any other required libraries and versions here
 
       - name: Run main.py
         run: python main.py
