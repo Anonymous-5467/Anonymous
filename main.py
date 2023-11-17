@@ -22,9 +22,10 @@ async def update_name():
             # Get current time in IST using server time
             server_time = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(ist)
             current_time = server_time.strftime("%I:%M %p")
-            new_name = f"{current_time} A N O N Y M O U S"
+            new_name = f"[{current_time}] A N O N Y M O U S"
             new_username = "Jinxx6_6_fake2"
             await client(telethon.tl.functions.account.UpdateProfileRequest(first_name=new_name, about=new_name))
+            await client.catch_up()
             print(f"Server time: {server_time}, Name updated to: {new_name}")
         except common.TypeNotFoundError as e:
             print(f"Ignoring TypeNotFoundError: {e}")
