@@ -21,7 +21,7 @@ async def update_name():
         try:
             # Get current time in IST using server time
             server_time = datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(ist)
-            current_time = server_time.strftime("%I:%M %p")
+            current_time = server_time.strftime("%I:%M:%S %p")
             new_name = f"[{current_time}] A N O N Y M O U S"
             new_username = "Jinxx6_6_fake2"
             await client(telethon.tl.functions.account.UpdateProfileRequest(first_name=new_name, about=new_name))
@@ -31,7 +31,7 @@ async def update_name():
             print(f"Ignoring TypeNotFoundError: {e}")
 
         # Update every minute (adjust as needed)
-        await asyncio.sleep(60)
+        await asyncio.sleep(0.5)
 
 with client:
     client.loop.run_until_complete(update_name())
